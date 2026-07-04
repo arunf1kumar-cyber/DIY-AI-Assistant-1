@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components - DIY AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">DIY AI Assistant</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="projects.html">Projects</a>
+            <a href="components.html" class="active">Components</a>
+            <a href="upload.html">Upload</a>
+        </nav>
+    </header>
+
+    <!-- Header -->
+    <section class="page-header">
+        <h1>🧩 Components Library</h1>
+        <p>Track and manage all your AI DIY hardware parts</p>
+    </section>
+
+    <!-- Search + Add -->
+    <section class="container">
+
+        <div class="card">
+            <input type="text" id="searchBox" placeholder="Search components..." onkeyup="searchComponents()">
+            <button onclick="addComponent()">+ Add New Component</button>
+        </div>
+
+        <!-- Components Grid -->
+        <div class="grid" id="componentList">
+
+            <div class="card component">
+                <h3>Raspberry Pi 4</h3>
+                <p>Mini computer for AI processing</p>
+                <span class="tag available">Available</span>
+                <button onclick="viewComponent('Raspberry Pi 4')">View</button>
+            </div>
+
+            <div class="card component">
+                <h3>Arduino Uno</h3>
+                <p>Microcontroller for hardware control</p>
+                <span class="tag available">Available</span>
+                <button onclick="viewComponent('Arduino Uno')">View</button>
+            </div>
+
+            <div class="card component">
+                <h3>Microphone Module</h3>
+                <p>Voice input for AI assistant</p>
+                <span class="tag low-stock">Low Stock</span>
+                <button onclick="viewComponent('Microphone Module')">View</button>
+            </div>
+
+            <div class="card component">
+                <h3>LCD Display</h3>
+                <p>Output display for assistant UI</p>
+                <span class="tag out-of-stock">Out of Stock</span>
+                <button onclick="viewComponent('LCD Display')">View</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 DIY AI Assistant</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Page Logic -->
+    <script>
+        function viewComponent(name) {
+            alert("Opening details for: " + name);
+        }
+
+        function addComponent() {
+            const name = prompt("Enter component name:");
+            if (name) {
+                alert(name + " added (frontend demo only)");
+            }
+        }
+
+        function searchComponents() {
+            let input = document.getElementById("searchBox").value.toLowerCase();
+            let items = document.querySelectorAll(".component");
+
+            items.forEach(item => {
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(input) ? "block" : "none";
+            });
+        }
+    </script>
+
+</body>
+</html>
