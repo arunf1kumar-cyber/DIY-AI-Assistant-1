@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIY Projects | DIY AI Assistant</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.search-box{
+    text-align:center;
+    margin:40px;
+}
+
+.search-box input{
+    width:60%;
+    max-width:600px;
+    padding:15px;
+    border-radius:10px;
+    border:none;
+    font-size:18px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.project-card{
+    background:#1e293b;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-card img{
+    width:100%;
+    border-radius:10px;
+    height:180px;
+    object-fit:cover;
+}
+
+.project-card h3{
+    margin:20px 0 10px;
+}
+
+.project-card p{
+    color:#cbd5e1;
+}
+
+.project-card button{
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🤖 DIY AI Assistant
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="ai-chat.html">AI Chat</a>
+
+<a href="components.html">Components</a>
+
+<a href="upload.html">Upload</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>DIY Project Library</h1>
+
+<p>
+
+Choose a project and start building with AI guidance.
+
+</p>
+
+</section>
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search Arduino, ESP32, Robotics...">
+
+</div>
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?1">
+
+<h3>Arduino LED Blinking</h3>
+
+<p>
+
+Perfect beginner project.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?2">
+
+<h3>Bluetooth Robot</h3>
+
+<p>
+
+Control your robot from a phone.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?3">
+
+<h3>ESP32 Weather Station</h3>
+
+<p>
+
+IoT weather monitoring.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?4">
+
+<h3>Home Automation</h3>
+
+<p>
+
+Control lights using Wi-Fi.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?5">
+
+<h3>PCB Design</h3>
+
+<p>
+
+Design your own PCB.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://picsum.photos/400/250?6">
+
+<h3>3D Printed Robot</h3>
+
+<p>
+
+Combine electronics and 3D printing.
+
+</p>
+
+<a href="project-details.html">
+
+<button>View Project</button>
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+© 2026 DIY AI Assistant
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
