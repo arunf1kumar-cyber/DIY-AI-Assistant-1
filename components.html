@@ -8,97 +8,103 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="logo">DIY AI Assistant</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="projects.html">Projects</a>
-            <a href="components.html" class="active">Components</a>
-            <a href="upload.html">Upload</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">DIY AI Assistant</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="components.html">Components</a>
+        <a href="ai-chat.html">AI Chat</a>
+    </nav>
+</header>
 
-    <!-- Header -->
-    <section class="page-header">
-        <h1>🧩 Components Library</h1>
-        <p>Track and manage all your AI DIY hardware parts</p>
-    </section>
+<section class="hero">
+    <h1>🧩 Components</h1>
+    <p>Manage your DIY hardware parts</p>
+</section>
 
-    <!-- Search + Add -->
-    <section class="container">
+<section>
 
-        <div class="card">
-            <input type="text" id="searchBox" placeholder="Search components..." onkeyup="searchComponents()">
-            <button onclick="addComponent()">+ Add New Component</button>
+    <div class="cards">
+
+        <!-- Add Component Form -->
+        <div class="card" style="text-align:left;">
+            <h3>Add New Component</h3>
+
+            <input id="compName" type="text" placeholder="Component Name">
+            <input id="compDesc" type="text" placeholder="Component Description">
+
+            <button onclick="addComponent()">Add Component</button>
         </div>
 
-        <!-- Components Grid -->
-        <div class="grid" id="componentList">
+    </div>
 
-            <div class="card component">
-                <h3>Raspberry Pi 4</h3>
-                <p>Mini computer for AI processing</p>
-                <span class="tag available">Available</span>
-                <button onclick="viewComponent('Raspberry Pi 4')">View</button>
+    <h2>My Components</h2>
+
+    <div class="cards" id="componentList">
+        <!-- Components appear here -->
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 DIY AI Assistant</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+function addComponent() {
+    let name = document.getElementById("compName").value;
+    let desc = document.getElementById("compDesc").value;
+
+    if (!name || !desc) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let components = JSON.parse(localStorage.getItem("components")) || [];
+
+    components.push({
+        name: name,
+        desc: desc
+    });
+
+    localStorage.setItem("components", JSON.stringify(components));
+
+    document.getElementById("compName").value = "";
+    document.getElementById("compDesc").value = "";
+
+    loadComponents();
+}
+
+function loadComponents() {
+    let container = document.getElementById("componentList");
+    let components = JSON.parse(localStorage.getItem("components")) || [];
+
+    container.innerHTML = "";
+
+    components.forEach((c, index) => {
+        container.innerHTML += `
+            <div class="card">
+                <h3>${c.name}</h3>
+                <p>${c.desc}</p>
+                <button onclick="deleteComponent(${index})">Delete</button>
             </div>
+        `;
+    });
+}
 
-            <div class="card component">
-                <h3>Arduino Uno</h3>
-                <p>Microcontroller for hardware control</p>
-                <span class="tag available">Available</span>
-                <button onclick="viewComponent('Arduino Uno')">View</button>
-            </div>
+function deleteComponent(index) {
+    let components = JSON.parse(localStorage.getItem("components")) || [];
+    components.splice(index, 1);
+    localStorage.setItem("components", JSON.stringify(components));
+    loadComponents();
+}
 
-            <div class="card component">
-                <h3>Microphone Module</h3>
-                <p>Voice input for AI assistant</p>
-                <span class="tag low-stock">Low Stock</span>
-                <button onclick="viewComponent('Microphone Module')">View</button>
-            </div>
-
-            <div class="card component">
-                <h3>LCD Display</h3>
-                <p>Output display for assistant UI</p>
-                <span class="tag out-of-stock">Out of Stock</span>
-                <button onclick="viewComponent('LCD Display')">View</button>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 DIY AI Assistant</p>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <!-- Page Logic -->
-    <script>
-        function viewComponent(name) {
-            alert("Opening details for: " + name);
-        }
-
-        function addComponent() {
-            const name = prompt("Enter component name:");
-            if (name) {
-                alert(name + " added (frontend demo only)");
-            }
-        }
-
-        function searchComponents() {
-            let input = document.getElementById("searchBox").value.toLowerCase();
-            let items = document.querySelectorAll(".component");
-
-            items.forEach(item => {
-                let text = item.innerText.toLowerCase();
-                item.style.display = text.includes(input) ? "block" : "none";
-            });
-        }
-    </script>
+window.onload = loadComponents;
+</script>
 
 </body>
 </html>
