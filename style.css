@@ -1,17 +1,18 @@
-/* ===== DIY AI Assistant Styles ===== */
+/* ===== DIY AI Assistant FINAL STYLE ===== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     background: #0f172a;
     color: white;
 }
 
+/* ===== HEADER ===== */
 header {
     background: #111827;
     display: flex;
@@ -20,10 +21,11 @@ header {
     padding: 20px 8%;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
     color: #38bdf8;
 }
@@ -31,7 +33,7 @@ header {
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
+    margin-left: 20px;
     transition: 0.3s;
 }
 
@@ -39,6 +41,7 @@ nav a:hover {
     color: #38bdf8;
 }
 
+/* ===== HERO ===== */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -46,34 +49,35 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 18px;
+    color: #d1d5db;
     max-width: 700px;
     margin: auto;
-    color: #d1d5db;
 }
 
+/* ===== BUTTON ===== */
 button {
-    margin-top: 30px;
+    margin-top: 20px;
     background: #22c55e;
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
     background: #16a34a;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
+/* ===== SECTIONS ===== */
 section {
     padding: 70px 8%;
 }
@@ -81,65 +85,60 @@ section {
 section h2 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 36px;
+    font-size: 34px;
 }
 
+/* ===== CARDS GRID ===== */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 20px;
 }
 
-.card,
-.project {
+/* ===== CARD ===== */
+.card, .project {
     background: #1e293b;
-    padding: 25px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 12px;
     text-align: center;
     transition: 0.3s;
 }
 
-.card:hover,
-.project:hover {
-    transform: translateY(-8px);
+.card:hover, .project:hover {
+    transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.card i {
-    font-size: 50px;
-    color: #38bdf8;
-    margin-bottom: 15px;
+.card h3, .project h3 {
+    margin-bottom: 10px;
 }
 
-.card h3,
-.project h3 {
-    margin-bottom: 15px;
-}
-
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     background: #111827;
     padding: 20px;
-    margin-top: 40px;
     color: #9ca3af;
+    margin-top: 40px;
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
     }
 
     nav {
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     nav a {
-        display: inline-block;
         margin: 10px;
+        display: inline-block;
     }
 
     .hero h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .hero p {
