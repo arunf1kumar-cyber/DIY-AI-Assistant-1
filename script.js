@@ -63,22 +63,46 @@ function aiReply(msg) {
    CHAT FUNCTION
 ========================= */
 
-function sendMessage() {
+async function sendMessage() {
     let input = document.getElementById("chatInput");
     let box = document.getElementById("chatBox");
 
     if (!input.value.trim()) return;
 
     let userMsg = input.value;
-    let botMsg = aiReply(userMsg);
 
-    box.innerHTML += `
-        <div><b>You:</b> ${userMsg}</div>
-        <div><b>AI:</b> ${botMsg}</div>
-        <hr>
-    `;
+    // show user message
+    box.innerHTML += `<div><b>You:</b> ${userMsg}</div>`;
 
     input.value = "";
+
+    // placeholder while AI responds
+    box.innerHTML += `<div><b>AI:</b> thinking...</div>`;
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "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"
+            },
+            body: JSON.stringify({
+                model: "gpt-4o-mini",
+                messages: [
+                    { role: "system", content: "You are a helpful DIY AI assistant." },
+                    { role: "user", content: userMsg }
+                ]
+            })
+        });
+
+        const data = await response.json();
+        const aiMsg = data.choices[0].message.content;
+
+        box.innerHTML += `<div><b>AI:</b> ${aiMsg}</div><hr>`;
+
+    } catch (err) {
+        box.innerHTML += `<div><b>AI:</b> Error connecting to AI API</div>`;
+    }
 }
 
 /* =========================
