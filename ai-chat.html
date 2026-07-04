@@ -3,211 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIY AI Assistant - AI Chat</title>
-
+    <title>AI Chat - DIY AI Assistant</title>
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-.chat-container{
-
-    width:90%;
-    max-width:900px;
-
-    margin:40px auto;
-
-    background:#1e293b;
-
-    border-radius:15px;
-
-    padding:25px;
-
-}
-
-.chat-box{
-
-    height:450px;
-
-    overflow-y:auto;
-
-    background:#0f172a;
-
-    border-radius:10px;
-
-    padding:20px;
-
-    margin-bottom:20px;
-
-}
-
-.message{
-
-    margin:15px 0;
-
-    padding:15px;
-
-    border-radius:10px;
-
-}
-
-.user{
-
-    background:#2563eb;
-
-    text-align:right;
-
-}
-
-.ai{
-
-    background:#334155;
-
-}
-
-.input-area{
-
-    display:flex;
-
-    gap:10px;
-
-}
-
-.input-area input{
-
-    flex:1;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    border:none;
-
-    font-size:16px;
-
-}
-
-.input-area button{
-
-    margin:0;
-
-}
-
-    </style>
-
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-
-🤖 DIY AI Assistant
-
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="dashboard.html">Dashboard</a>
-
-<a href="projects.html">Projects</a>
-
-<a href="components.html">Components</a>
-
-<a href="upload.html">Upload</a>
-
-</nav>
-
+    <div class="logo">DIY AI Assistant</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="components.html">Components</a>
+        <a href="ai-chat.html">AI Chat</a>
+    </nav>
 </header>
 
-<div class="chat-container">
+<section class="hero">
+    <h1>AI Chat Assistant 🤖</h1>
+    <p>Talk with your DIY assistant</p>
+</section>
 
-<h2 align="center">DIY AI Chat</h2>
+<section>
 
-<div class="chat-box" id="chatBox">
+    <div class="cards">
 
-<div class="message ai">
+        <div class="card" style="text-align:left;">
+            <div id="chatBox" style="height:300px; overflow-y:auto; background:#0f172a; padding:10px; border-radius:10px;"></div>
 
-👋 Hello! I'm your DIY AI Assistant.
+            <input id="chatInput" type="text" placeholder="Type your message...">
 
-Ask me about:
+            <button onclick="sendMessage()">Send</button>
+        </div>
 
-• Arduino
+    </div>
 
-• ESP32
+</section>
 
-• Robotics
+<footer>
+    <p>© 2026 DIY AI Assistant</p>
+</footer>
 
-• PCB
-
-• Electronics
-
-• Raspberry Pi
-
-</div>
-
-</div>
-
-<div class="input-area">
-
-<input
-id="userInput"
-type="text"
-placeholder="Ask your DIY question...">
-
-<button onclick="sendMessage()">
-
-Send
-
-</button>
-
-</div>
-
-</div>
-
-<script>
-
-function sendMessage(){
-
-let input=document.getElementById("userInput");
-
-let chat=document.getElementById("chatBox");
-
-if(input.value.trim()=="") return;
-
-chat.innerHTML+=`
-
-<div class="message user">
-
-${input.value}
-
-</div>
-
-`;
-
-chat.innerHTML+=`
-
-<div class="message ai">
-
-This is a demo AI response.
-
-Later this page can connect to OpenAI or Gemini APIs to provide real step-by-step project guidance.
-
-</div>
-
-`;
-
-input.value="";
-
-chat.scrollTop=chat.scrollHeight;
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
